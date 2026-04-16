@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>DIVA SKIN — Косметолог Алматы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════
+   RESET & VARIABLES
+═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brown:   #452815;
+  --brown2:  #6b3d1e;
+  --brown3:  #8a5230;
+  --sand:    #E0CAA6;
+  --sand-lt: #f5ede0;
+  --sand-dk: #c9a97a;
+  --gold:    #E8D288;
+  --gold-lt: #f7eecc;
+  --gold-dk: #c4a84a;
+  --cream:   #fdf8f0;
+  --white:   #fffdf9;
+  --ink:     #2a1608;
+  --muted:   #8a6a4a;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.15;font-weight:500}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;outline:none}
+img{max-width:100%;display:block}
+section{padding:5rem 1.5rem}
+
+/* ═══════════════════════════════════════════════
+   SCROLL ANIMATIONS
+═══════════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-28px);transition:opacity .7s ease,transform .7s ease}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal-right.visible{opacity:1;transform:none}
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:0 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+  transition:background .3s,box-shadow .3s;
+}
+nav.scrolled{
+  background:rgba(253,248,240,.96);
+  backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 rgba(69,40,21,.1);
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;letter-spacing:.08em;
+  color:var(--white);transition:color .3s;
+  font-style:italic;
+}
+nav.scrolled .nav-logo{color:var(--brown)}
+.nav-menu{display:flex;gap:2rem;align-items:center}
+.nav-link{
+  font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,253,249,.7);transition:color .2s;font-weight:400;
+}
+nav.scrolled .nav-link{color:var(--muted)}
+.nav-link:hover{color:var(--gold)!important}
+.nav-cta{
+  background:var(--gold);color:var(--brown);
+  padding:9px 22px;border-radius:50px;
+  font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:600;transition:all .2s;
+  box-shadow:0 2px 12px rgba(232,210,136,.4);
+}
+.nav-cta:hover{background:var(--sand);box-shadow:0 4px 20px rgba(232,210,136,.5)}
+/* hamburger */
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{display:block;width:24px;height:1.5px;background:var(--white);transition:all .3s;border-radius:2px}
+nav.scrolled .burger span{background:var(--brown)}
+.mobile-menu{
+  display:none;position:fixed;inset:0;z-index:190;
+  background:var(--brown);
+  flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  font-family:'Playfair Display',serif;font-size:1.6rem;
+  color:var(--sand);letter-spacing:.05em;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;
+  background:var(--brown);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:6rem 1.5rem 4rem;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 80% 20%,rgba(232,210,136,.12) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 15% 80%,rgba(224,202,166,.1) 0%,transparent 55%),
+    linear-gradient(160deg,#3a1e08 0%,#452815 50%,#5c3218 100%);
+}
+.hero-grain{
+  position:absolute;inset:0;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-content{position:relative;z-index:1;max-width:780px}
+.hero-badge{
+  display:inline-block;
+  border:1px solid rgba(232,210,136,.4);
+  color:var(--gold);
+  font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+  padding:7px 18px;border-radius:50px;margin-bottom:2rem;
+  font-weight:400;
+}
+.hero h1{
+  font-size:clamp(2.8rem,8vw,5.5rem);
+  color:var(--white);
+  margin-bottom:1.25rem;
+  font-weight:500;
+  letter-spacing:.02em;
+}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-desc{
+  font-size:1rem;color:rgba(253,248,240,.65);
+  max-width:520px;margin:0 auto 2.75rem;
+  line-height:1.8;font-weight:300;
+}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-gold{
+  background:var(--gold);color:var(--brown);
+  padding:15px 38px;border-radius:50px;
+  font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;transition:all .25s;
+  box-shadow:0 4px 24px rgba(232,210,136,.35);
+}
+.btn-gold:hover{background:var(--sand);transform:translateY(-2px);box-shadow:0 8px 32px rgba(232,210,136,.45)}
+.btn-ghost{
+  border:1px solid rgba(224,202,166,.4);color:var(--sand);
+  padding:15px 38px;border-radius:50px;
+  font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:400;transition:all .25s;background:transparent;
+}
+.btn-ghost:hover{border-color:var(--sand);background:rgba(224,202,166,.1)}
+.hero-scroll{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  color:rgba(232,210,136,.5);font-size:.7rem;letter-spacing:.16em;
+  text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.hero-scroll::after{
+  content:'';display:block;width:1px;height:40px;
+  background:linear-gradient(to bottom,rgba(232,210,136,.4),transparent);
+}
+/* floating decoration */
+.hero-circle{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(232,210,136,.1);
+  pointer-events:none;
+}
+.hc1{width:600px;height:600px;right:-200px;top:-150px;}
+.hc2{width:400px;height:400px;left:-120px;bottom:-100px;}
+
+/* ═══════════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════════ */
+.about{
+  background:var(--white);padding:6rem 1.5rem;
+}
+.about-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1.1fr;
+  gap:5rem;align-items:center;
+}
+.about-visual{position:relative}
+.about-photo{
+  width:100%;aspect-ratio:4/5;
+  background:linear-gradient(145deg,#f0ddc8 0%,#e8c9a0 40%,#d4a870 100%);
+  border-radius:2rem;
+  display:flex;align-items:center;justify-content:center;
+  font-size:7rem;overflow:hidden;position:relative;
+}
+.about-photo-inner{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(232,210,136,.2) 0%,transparent 60%);
+}
+.about-badge{
+  position:absolute;bottom:-1.5rem;right:-1.5rem;
+  width:120px;height:120px;
+  background:var(--brown);border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 8px 32px rgba(69,40,21,.25);
+}
+.about-badge-n{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold);line-height:1}
+.about-badge-l{font-size:.6rem;color:var(--sand);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;text-align:center}
+.about-label{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold-dk);margin-bottom:.75rem;font-weight:500;
+}
+.about h2{
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  color:var(--brown);margin-bottom:1.25rem;
+}
+.about-text{color:var(--muted);line-height:1.85;margin-bottom:.85rem;font-size:.97rem}
+.about-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.75rem}
+.tag{
+  background:var(--sand-lt);color:var(--brown3);
+  border:1px solid rgba(224,202,166,.6);
+  border-radius:50px;padding:6px 16px;
+  font-size:.78rem;letter-spacing:.06em;
+}
+.about-stats{
+  display:flex;gap:2.5rem;margin-top:2.5rem;
+  padding-top:2rem;border-top:1px solid rgba(224,202,166,.4);
+  flex-wrap:wrap;
+}
+.stat .sn{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;color:var(--brown);display:block;
+}
+.stat .sl{font-size:.78rem;color:var(--muted);margin-top:2px}
+
+/* ═══════════════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════════════ */
+.services{
+  background:var(--cream);
+}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-label{
+  font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-dk);display:block;margin-bottom:.6rem;font-weight:500;
+}
+.section-header h2{
+  font-size:clamp(1.8rem,4vw,2.8rem);color:var(--brown);
+  margin-bottom:.75rem;
+}
+.section-sub{color:var(--muted);font-size:.95rem;max-width:480px;margin:0 auto}
+.svc-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+  gap:1.5rem;
+}
+.svc-card{
+  background:var(--white);
+  border:1px solid rgba(224,202,166,.5);
+  border-radius:1.5rem;padding:2rem;
+  position:relative;overflow:hidden;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.svc-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--sand));
+  opacity:0;transition:opacity .3s;
+}
+.svc-card:hover{transform:translateY(-4px);border-color:var(--sand-dk);box-shadow:0 12px 40px rgba(69,40,21,.08)}
+.svc-card:hover::before{opacity:1}
+.svc-num{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;color:rgba(224,202,166,.35);
+  line-height:1;margin-bottom:1rem;
+}
+.svc-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;color:var(--brown);margin-bottom:.6rem;
+}
+.svc-desc{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:1.25rem}
+.svc-steps{list-style:none;margin-bottom:1.5rem}
+.svc-steps li{
+  font-size:.82rem;color:var(--brown3);
+  padding:.4rem 0;
+  border-bottom:1px solid rgba(224,202,166,.3);
+  display:flex;align-items:center;gap:.6rem;
+}
+.svc-steps li:last-child{border-bottom:none}
+.svc-steps li::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--gold-dk);flex-shrink:0;
+}
+.svc-price{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:1.25rem;border-top:1px solid rgba(224,202,166,.4);
+}
+.svc-p{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;color:var(--brown);
+}
+.svc-dur{font-size:.78rem;color:var(--muted)}
+/* why us */
+.why-grid{
+  max-width:1100px;margin:4rem auto 0;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1.25rem;
+}
+.why-card{
+  background:var(--brown);border-radius:1.25rem;
+  padding:1.75rem;
+  position:relative;overflow:hidden;
+}
+.why-card::before{
+  content:'';position:absolute;top:-30px;right:-30px;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(232,210,136,.06);
+}
+.why-icon{font-size:1.5rem;margin-bottom:1rem}
+.why-title{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;color:var(--gold);margin-bottom:.5rem;
+}
+.why-text{font-size:.82rem;color:rgba(224,202,166,.7);line-height:1.7}
+
+/* ═══════════════════════════════════════════════
+   BEFORE / AFTER
+═══════════════════════════════════════════════ */
+.results{background:var(--white)}
+.ba-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:1.5rem;margin-bottom:4rem;
+}
+.ba-card{border-radius:1.5rem;overflow:hidden;position:relative}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;height:360px}
+.ba-half{
+  display:flex;align-items:flex-end;padding:1rem;
+  position:relative;
+  font-size:4rem;justify-content:center;align-items:center;
+}
+.ba-half.before{background:linear-gradient(160deg,#e8d4c0,#d4b090)}
+.ba-half.after {background:linear-gradient(160deg,#f5e8d0,#e8c88a)}
+.ba-label{
+  position:absolute;top:10px;left:10px;
+  font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--white);
+  background:rgba(69,40,21,.5);
+  padding:4px 10px;border-radius:50px;font-weight:500;
+  backdrop-filter:blur(4px);
+}
+.ba-info{
+  background:var(--brown);padding:1.25rem 1.5rem;
+}
+.ba-proc{font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;font-weight:500}
+.ba-result{font-size:.95rem;color:var(--sand);font-weight:400}
+
+/* reviews */
+.reviews-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:1.25rem;
+}
+.review-card{
+  background:var(--cream);border:1px solid rgba(224,202,166,.5);
+  border-radius:1.25rem;padding:1.75rem;
+}
+.review-stars{color:var(--gold-dk);font-size:1rem;margin-bottom:.75rem;letter-spacing:2px}
+.review-text{font-size:.9rem;color:var(--ink);line-height:1.8;margin-bottom:1.25rem;font-style:italic}
+.review-author{display:flex;align-items:center;gap:.75rem}
+.review-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--sand),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown);font-weight:500;
+  flex-shrink:0;
+}
+.review-name{font-size:.88rem;font-weight:600;color:var(--brown)}
+.review-date{font-size:.75rem;color:var(--muted)}
+/* result promise */
+.promise-strip{
+  max-width:1100px;margin:3.5rem auto 0;
+  background:linear-gradient(135deg,var(--brown) 0%,#6b3820 100%);
+  border-radius:1.5rem;padding:2.5rem 3rem;
+  display:grid;grid-template-columns:1fr auto;
+  gap:2rem;align-items:center;
+}
+.promise-strip h3{
+  font-size:1.6rem;color:var(--white);margin-bottom:.5rem;
+}
+.promise-strip p{font-size:.9rem;color:rgba(224,202,166,.75);line-height:1.75}
+.promise-list{list-style:none;margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.promise-list li{
+  background:rgba(232,210,136,.12);color:var(--gold);
+  border:1px solid rgba(232,210,136,.2);
+  border-radius:50px;padding:5px 14px;font-size:.78rem;letter-spacing:.05em;
+}
+
+/* ═══════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════ */
+.faq{background:var(--cream)}
+.faq-inner{max-width:780px;margin:0 auto}
+.faq-item{
+  border-bottom:1px solid rgba(224,202,166,.5);
+}
+.faq-q{
+  width:100%;background:none;border:none;
+  text-align:left;padding:1.5rem 0;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:1rem;cursor:pointer;
+  font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--brown);
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--brown3)}
+.faq-icon{
+  width:28px;height:28px;border-radius:50%;
+  border:1px solid rgba(224,202,166,.6);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  font-size:1rem;color:var(--gold-dk);
+  transition:transform .3s,background .2s;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--gold);border-color:var(--gold);color:var(--brown)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s ease;
+}
+.faq-a-inner{
+  padding:.25rem 0 1.5rem;
+  font-size:.92rem;color:var(--muted);line-height:1.85;
+}
+
+/* ═══════════════════════════════════════════════
+   BOOKING CTA
+═══════════════════════════════════════════════ */
+.booking-cta{
+  background:var(--brown);
+  text-align:center;padding:6rem 1.5rem;position:relative;overflow:hidden;
+}
+.booking-cta::before{
+  content:'';position:absolute;
+  width:500px;height:500px;border-radius:50%;
+  border:1px solid rgba(232,210,136,.06);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.booking-cta::after{
+  content:'';position:absolute;
+  width:800px;height:800px;border-radius:50%;
+  border:1px solid rgba(232,210,136,.04);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.booking-cta-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.booking-cta .section-label{color:var(--gold-dk)}
+.booking-cta h2{font-size:clamp(2rem,5vw,3.2rem);color:var(--white);margin-bottom:1rem}
+.booking-cta p{color:rgba(224,202,166,.7);margin-bottom:2.5rem;font-size:.97rem;line-height:1.8}
+.btn-tg{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--gold);color:var(--brown);
+  padding:17px 42px;border-radius:50px;
+  font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;transition:all .25s;
+  box-shadow:0 4px 28px rgba(232,210,136,.3);
+}
+.btn-tg:hover{background:var(--sand);transform:translateY(-2px);box-shadow:0 8px 36px rgba(232,210,136,.4)}
+.tg-svg{width:20px;height:20px;fill:var(--brown)}
+.booking-cta-note{font-size:.78rem;color:rgba(224,202,166,.4);margin-top:1.25rem;letter-spacing:.05em}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer{
+  background:#2a1608;
+  padding:2.5rem 1.5rem;
+  text-align:center;
+}
+.ft-logo{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.4rem;color:var(--sand);margin-bottom:.5rem;letter-spacing:.06em;
+}
+.ft-sub{font-size:.78rem;color:rgba(224,202,166,.4);letter-spacing:.1em;text-transform:uppercase}
+.ft-line{
+  width:40px;height:1px;background:rgba(232,210,136,.2);
+  margin:1.25rem auto;
+}
+.ft-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.ft-links a{font-size:.78rem;color:rgba(224,202,166,.5);transition:color .2s;letter-spacing:.06em}
+.ft-links a:hover{color:var(--gold)}
+.ft-copy{font-size:.72rem;color:rgba(224,202,166,.25);margin-top:1.25rem;letter-spacing:.05em}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:900px){
+  .about-inner{grid-template-columns:1fr;gap:3rem;max-width:540px}
+  .about-photo{max-width:260px;margin:0 auto;aspect-ratio:1/1;font-size:5rem}
+  .about-badge{bottom:-1rem;right:0}
+  .promise-strip{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  section{padding:4rem 1.25rem}
+  .nav-menu{display:none}
+  .burger{display:flex}
+  .hero h1{font-size:2.5rem}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-gold,.btn-ghost{width:100%;max-width:300px;text-align:center}
+  .promise-strip{padding:2rem 1.5rem}
+  .booking-cta{padding:4rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="nav">
+  <div class="nav-logo">Diva Skin</div>
+  <div class="nav-menu">
+    <a href="#about"    class="nav-link">Обо мне</a>
+    <a href="#services" class="nav-link">Услуги</a>
+    <a href="#results"  class="nav-link">Результаты</a>
+    <a href="#faq"      class="nav-link">FAQ</a>
+    <a href="#booking"  class="nav-cta">Записаться</a>
+  </div>
+  <div class="burger" onclick="toggleMenu()" id="burger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about"    onclick="closeMenu()">Обо мне</a>
+  <a href="#services" onclick="closeMenu()">Услуги</a>
+  <a href="#results"  onclick="closeMenu()">Результаты</a>
+  <a href="#faq"      onclick="closeMenu()">FAQ</a>
+  <a href="#booking"  class="btn-gold" onclick="closeMenu()" style="font-size:.85rem;padding:14px 36px">Записаться</a>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-circle hc1"></div>
+  <div class="hero-circle hc2"></div>
+
+  <div class="hero-content reveal">
+    <div class="hero-badge">Косметолог · Алматы</div>
+    <h1>Кожа, которой<br/>хочется <em>гордиться</em></h1>
+    <p class="hero-desc">
+      Профессиональный уход за кожей лица — для тех, кто устал от несовершенств
+      и хочет видеть реальный результат. Работаю с проблемной, жирной, чувствительной
+      и возрастной кожей.
+    </p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-gold">Записаться онлайн</a>
+      <a href="#services" class="btn-ghost">Посмотреть услуги</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Листайте вниз</div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-visual reveal-left">
+      <div class="about-photo">
+        🌿
+        <div class="about-photo-inner"></div>
+      </div>
+      <div class="about-badge">
+        <span class="about-badge-n">7+</span>
+        <span class="about-badge-l">лет опыта</span>
+      </div>
+    </div>
+
+    <div class="reveal-right">
+      <p class="about-label">О специалисте</p>
+      <h2>Дина —<br/>косметолог-эстетист</h2>
+      <p class="about-text">
+        Меня зовут Дина, я практикующий косметолог с 7-летним опытом работы в эстетической медицине.
+        Работаю в Алматы, принимаю в уютном кабинете в центре города.
+      </p>
+      <p class="about-text">
+        Специализируюсь на глубоком очищении кожи, коррекции постакне, пигментации и первых признаков старения.
+        Каждая процедура начинается с диагностики — никакого шаблонного подхода.
+      </p>
+      <p class="about-text">
+        Использую профессиональную косметику <strong style="color:var(--brown);font-weight:600">Holy Land, Christina, Mesoestetic</strong>.
+        Регулярно повышаю квалификацию на международных обучениях.
+      </p>
+      <div class="about-tags">
+        <span class="tag">Диплом косметолога</span>
+        <span class="tag">Курсы инъекционной косметологии</span>
+        <span class="tag">Holy Land сертификат</span>
+        <span class="tag">Мезотерапия</span>
+        <span class="tag">Химические пилинги</span>
+      </div>
+      <div class="about-stats">
+        <div class="stat"><span class="sn">7+</span><span class="sl">лет практики</span></div>
+        <div class="stat"><span class="sn">1 500+</span><span class="sl">клиентов</span></div>
+        <div class="stat"><span class="sn">98%</span><span class="sl">повторных записей</span></div>
+        <div class="stat"><span class="sn">20+</span><span class="sl">сертификатов</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section class="services" id="services">
+  <div class="section-header reveal">
+    <span class="section-label">Что я предлагаю</span>
+    <h2>Ваши услуги</h2>
+    <p class="section-sub">Каждая процедура — индивидуально подобранный протокол под ваш тип кожи</p>
+  </div>
+
+  <div class="svc-grid">
+
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <div class="svc-name">Механическая чистка лица</div>
+      <p class="svc-desc">Глубокое ручное очищение пор. Идеально при жирной, комбинированной и проблемной коже.</p>
+      <ul class="svc-steps">
+        <li>Демакияж + очищение</li>
+        <li>Распаривание / ферментный пилинг</li>
+        <li>Ручная экстракция комедонов</li>
+        <li>Антибактериальная маска</li>
+        <li>Финишный уход и SPF</li>
+      </ul>
+      <div class="svc-price">
+        <span class="svc-p">от 8 000 ₸</span>
+        <span class="svc-dur">90 мин</span>
+      </div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div class="svc-num">02</div>
+      <div class="svc-name">Ультразвуковая чистка</div>
+      <p class="svc-desc">Мягкое аппаратное очищение без травматизации. Подходит для чувствительной и тонкой кожи.</p>
+      <ul class="svc-steps">
+        <li>Очищение + пре-тоник</li>
+        <li>Ультразвуковой скрабер (лопатка)</li>
+        <li>Ионофорез с сывороткой</li>
+        <li>Успокаивающая маска</li>
+        <li>Крем + защита</li>
+      </ul>
+      <div class="svc-price">
+        <span class="svc-p">от 7 000 ₸</span>
+        <span class="svc-dur">60 мин</span>
+      </div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div class="svc-num">03</div>
+      <div class="svc-name">Комбинированная чистка</div>
+      <p class="svc-desc">Механическая + ультразвуковая чистка в одном протоколе. Максимальный результат за одно посещение.</p>
+      <ul class="svc-steps">
+        <li>Полный протокол механической чистки</li>
+        <li>Ультразвуковое финишное очищение</li>
+        <li>Мультиактивная маска</li>
+        <li>Лимфодренажный массаж лица</li>
+        <li>Финишный уход</li>
+      </ul>
+      <div class="svc-price">
+        <span class="svc-p">от 12 000 ₸</span>
+        <span class="svc-dur">120 мин</span>
+      </div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div class="svc-num">04</div>
+      <div class="svc-name">Химический пилинг</div>
+      <p class="svc-desc">Кислотное обновление кожи. Работает с пигментацией, постакне, тусклостью и мелкими морщинами.</p>
+      <ul class="svc-steps">
+        <li>Диагностика + подбор кислоты</li>
+        <li>Деликатное очищение кожи</li>
+        <li>Нанесение пилинга (АНА / ВНА / TCA)</li>
+        <li>Нейтрализация + успокоение</li>
+        <li>Восстанавливающий финиш</li>
+      </ul>
+      <div class="svc-price">
+        <span class="svc-p">от 10 000 ₸</span>
+        <span class="svc-dur">60 мин</span>
+      </div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div class="svc-num">05</div>
+      <div class="svc-name">Уход за кожей SPA-протокол</div>
+      <p class="svc-desc">Премиальный восстанавливающий уход. Питание, лифтинг, сияние — три эффекта в одной процедуре.</p>
+      <ul class="svc-steps">
+        <li>Энзимное очищение</li>
+        <li>Массаж лица (Kobido техника)</li>
+        <li>Ампульный концентрат под маску</li>
+        <li>Альгинатная или гидрогелевая маска</li>
+        <li>Крем + сыворотка в подарок</li>
+      </ul>
+      <div class="svc-price">
+        <span class="svc-p">от 11 000 ₸</span>
+        <span class="svc-dur">90 мин</span>
+      </div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div class="svc-num">06</div>
+      <div class="svc-name">Инъекционная косметология</div>
+      <p class="svc-desc">Биоревитализация, мезотерапия и контурная пластика. Подробности — при личной консультации.</p>
+      <ul class="svc-steps">
+        <li>Биоревитализация (гиалуронат)</li>
+        <li>Мезотерапия коктейлями</li>
+        <li>Контурная пластика</li>
+        <li>PRP-терапия</li>
+      </ul>
+      <div class="svc-price">
+        <span class="svc-p">Цена на консультации</span>
+        <span class="svc-dur">от 45 мин</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- why choose -->
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">🔬</div>
+      <div class="why-title">Диагностика перед каждой процедурой</div>
+      <div class="why-text">Подбираю протокол исходя из реального состояния вашей кожи, а не по шаблону.</div>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">✦</div>
+      <div class="why-title">Только проверенные препараты</div>
+      <div class="why-text">Holy Land, Mesoestetic, Christina — сертифицированная профессиональная косметика.</div>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🤍</div>
+      <div class="why-title">Безопасность и стерильность</div>
+      <div class="why-text">Одноразовые расходники, стерильные инструменты, соблюдение всех норм асептики.</div>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">📲</div>
+      <div class="why-title">Поддержка после процедуры</div>
+      <div class="why-text">Всегда на связи в Telegram — отвечу на вопросы о реабилитации и домашнем уходе.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ RESULTS ══════════ -->
+<section class="results" id="results">
+  <div class="section-header reveal">
+    <span class="section-label">До и после</span>
+    <h2>Реальные результаты</h2>
+    <p class="section-sub">Работы моих клиентов — без фильтров и фотошопа</p>
+  </div>
+
+  <div class="ba-grid">
+    <div class="ba-card reveal">
+      <div class="ba-pair">
+        <div class="ba-half before"><span>😔</span><span class="ba-label">До</span></div>
+        <div class="ba-half after"><span>✨</span><span class="ba-label">После</span></div>
+      </div>
+      <div class="ba-info">
+        <div class="ba-proc">Механическая чистка × 3</div>
+        <div class="ba-result">Закрытые поры, ровный тон, исчезновение комедонов</div>
+      </div>
+    </div>
+    <div class="ba-card reveal">
+      <div class="ba-pair">
+        <div class="ba-half before"><span>😞</span><span class="ba-label">До</span></div>
+        <div class="ba-half after"><span>🌟</span><span class="ba-label">После</span></div>
+      </div>
+      <div class="ba-info">
+        <div class="ba-proc">Химический пилинг × 4</div>
+        <div class="ba-result">Осветление постакне, выравнивание рельефа кожи</div>
+      </div>
+    </div>
+    <div class="ba-card reveal">
+      <div class="ba-pair">
+        <div class="ba-half before"><span>😟</span><span class="ba-label">До</span></div>
+        <div class="ba-half after"><span>💫</span><span class="ba-label">После</span></div>
+      </div>
+      <div class="ba-info">
+        <div class="ba-proc">SPA-уход × 2</div>
+        <div class="ba-result">Глубокое увлажнение, лифтинг-эффект, сияние кожи</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- promise -->
+  <div class="promise-strip reveal">
+    <div>
+      <h3>Что вы получите<br/>после курса процедур</h3>
+      <p>Мы работаем не на разовый результат, а на долгосрочное здоровье вашей кожи. Уже после 1–3 процедур вы заметите реальные изменения.</p>
+      <ul class="promise-list">
+        <li>✦ Чистые поры</li>
+        <li>✦ Ровный тон</li>
+        <li>✦ Меньше воспалений</li>
+        <li>✦ Естественное сияние</li>
+        <li>✦ Уверенность без макияжа</li>
+        <li>✦ Замедление старения</li>
+      </ul>
+    </div>
+    <a href="#booking" class="btn-gold" style="white-space:nowrap;flex-shrink:0">Записаться →</a>
+  </div>
+
+  <!-- reviews -->
+  <div class="section-header reveal" style="margin-top:4rem">
+    <span class="section-label">Отзывы</span>
+    <h2>Говорят клиенты</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">«Пришла с расширенными порами и жирным блеском. После трёх чисток кожа просто неузнаваема — матовая, ровная. Дина очень внимательно подходит к каждому клиенту, чувствуешь что о тебе заботятся.»</p>
+      <div class="review-author">
+        <div class="review-avatar">А</div>
+        <div>
+          <div class="review-name">Айгерим С.</div>
+          <div class="review-date">Механическая чистка · март 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">«Давно мечтала избавиться от постакне. Прошла курс пилингов — 4 процедуры. Результат превзошёл все ожидания! Пятна значительно посветлели, текстура кожи выровнялась. Буду приходить снова.»</p>
+      <div class="review-author">
+        <div class="review-avatar">М</div>
+        <div>
+          <div class="review-name">Мадина К.</div>
+          <div class="review-date">Химический пилинг · февраль 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">«Записалась на SPA-уход перед свадьбой. Кожа буквально светилась на торжестве! Все гости спрашивали, что я сделала. Дина — настоящий мастер своего дела, уже порекомендовала всем подругам.»</p>
+      <div class="review-author">
+        <div class="review-avatar">З</div>
+        <div>
+          <div class="review-name">Зарина Н.</div>
+          <div class="review-date">SPA-протокол · январь 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="faq" id="faq">
+  <div class="section-header reveal">
+    <span class="section-label">Частые вопросы</span>
+    <h2>Ответы на вопросы</h2>
+  </div>
+  <div class="faq-inner">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Больно ли делать механическую чистку?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p class="faq-a-inner">Чистка может быть немного дискомфортной — особенно в зонах с плотными комедонами. Я работаю аккуратно, использую размягчающие средства и при необходимости наношу успокаивающий крем. Большинство клиентов переносят процедуру комфортно. После неё возможно небольшое покраснение, которое проходит через 2–6 часов.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Как часто нужно делать чистку лица?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p class="faq-a-inner">Частота зависит от типа кожи. Жирная и проблемная кожа — раз в 3–4 недели. Нормальная и комбинированная — раз в 4–6 недель. Сухая и чувствительная кожа — раз в 6–8 недель. На первой консультации я индивидуально подберу оптимальную частоту посещений.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Есть ли противопоказания к пилингу?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p class="faq-a-inner">Да. Пилинг противопоказан при: активных воспалениях и герпесе, беременности и кормлении, повреждённой коже, непереносимости кислот. Также следует подождать 2 недели после загара. Перед процедурой я обязательно провожу консультацию и тест на чувствительность.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Когда будет виден результат?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p class="faq-a-inner">Часть результатов вы заметите сразу после процедуры: кожа станет мягче и свежее. Полный результат чистки виден через 3–5 дней, когда спадёт лёгкое покраснение. При курсовом лечении (пилинги, уход) заметные изменения появляются после 2–3 процедур.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Как подготовиться к процедуре?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p class="faq-a-inner">За 3 дня до чистки или пилинга: не используйте ретинол и агрессивные кислоты, не делайте восковую депиляцию лица. Придите на процедуру с чистой кожей, без макияжа. Если принимаете антибиотики или ретиноиды — предупредите заранее.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Где находится кабинет? Как записаться?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p class="faq-a-inner">Кабинет расположен в центре Алматы (точный адрес скидываю после подтверждения записи). Записаться можно прямо здесь на сайте — нажмите кнопку «Записаться» и напишите мне в Telegram. Отвечаю быстро, в течение нескольких часов.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ BOOKING CTA ══════════ -->
+<section class="booking-cta" id="booking">
+  <div class="booking-cta-inner reveal">
+    <span class="section-label">Запись открыта</span>
+    <h2>Готовы к процедуре?</h2>
+    <p>Напишите мне в Telegram — вместе подберём услугу под ваши задачи и запишем на удобное время. Первая консультация бесплатно.</p>
+    <a href="https://t.me/firssry?text=Здравствуйте!%20Хочу%20записаться%20на%20процедуру." target="_blank" class="btn-tg">
+      <svg class="tg-svg" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.9 8.2-2.1 9.9c-.15.68-.56.84-1.13.52l-3.1-2.28-1.5 1.44c-.17.16-.3.3-.62.3l.22-3.17 5.72-5.17c.25-.22-.05-.34-.38-.12L7.55 14.6l-3.06-.95c-.67-.2-.68-.67.14-.99l11.87-4.58c.56-.2 1.05.14.87.99z"/></svg>
+      Записаться в Telegram
+    </a>
+    <p class="booking-cta-note">@firssry · Отвечаю в течение нескольких часов</p>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="ft-logo">Diva Skin</div>
+  <div class="ft-sub">Косметолог · Алматы</div>
+  <div class="ft-line"></div>
+  <div class="ft-links">
+    <a href="https://www.instagram.com/divaa_skinn" target="_blank">Instagram</a>
+    <a href="https://t.me/firssry" target="_blank">Telegram</a>
+    <a href="#services">Услуги</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <p class="ft-copy">© 2025 Diva Skin. Все права защищены.</p>
+</footer>
+
+<script>
+/* ── Nav scroll effect ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ── Mobile menu ── */
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+/* ── Scroll reveal ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      // stagger siblings
+      const parent = e.target.parentElement;
+      const siblings = parent.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+      siblings.forEach((el, i) => {
+        if (!el.classList.contains('visible')) {
+          setTimeout(() => el.classList.add('visible'), i * 80);
+        }
+      });
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => observer.observe(el));
+
+/* ── FAQ accordion ── */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const answer = item.querySelector('.faq-a');
+  const isOpen = item.classList.contains('open');
+
+  // close all
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-a').style.maxHeight = '0';
+  });
+
+  if (!isOpen) {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+/* ── Smooth scroll for anchors ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
